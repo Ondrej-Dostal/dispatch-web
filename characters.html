@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postavy | Dispatch</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ====== CHARACTERS GRID ====== */
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .character-card {
+      background-color: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 0 12px rgba(0, 194, 255, 0.1);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+    }
+
+    .character-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(160, 32, 240, 0.25);
+    }
+
+    .character-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .character-card h3 {
+      margin: 1rem 0;
+      color: var(--neon-blue);
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    /* ====== MODAL ====== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: var(--bg-card);
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+      color: var(--text-light);
+      box-shadow: 0 0 20px rgba(0, 194, 255, 0.2);
+      animation: fadeIn 0.3s ease;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--neon-blue);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header>
+    <a href="index.html" class="logo">
+      <img src="images/dispatch-logo.png" alt="Dispatch logo">
+    </a>
+    <nav>
+      <a href="index.html">Domů</a>
+      <a href="story.html">Příběh</a>
+      <a href="characters.html">Postavy</a>
+    </nav>
+  </header>
+
+  <!-- ====== MAIN CONTENT ====== -->
+  <main>
+    <section class="section">
+      <h2>Z-Team</h2>
+      <div class="characters-grid">
+
+        <!-- Robert Robertson III -->
+        <div class="character-card" onclick="openModal('robert')">
+          <img src="images/robert.png" alt="Robert Robertson III">
+          <h3>Robert Robertson III</h3>
+        </div>
+
+        <!-- Invisigal -->
+        <div class="character-card" onclick="openModal('invisigal')">
+          <img src="images/invisigal.png" alt="Invisigal">
+          <h3>Invisigal</h3>
+        </div>
+
+        <!-- Sonar -->
+        <div class="character-card" onclick="openModal('sonar')">
+          <img src="images/sonar.png" alt="Sonar">
+          <h3>Sonar</h3>
+        </div>
+
+        <!-- Punch Up -->
+        <div class="character-card" onclick="openModal('punchup')">
+          <img src="images/punchup.png" alt="Punch Up">
+          <h3>Punch Up</h3>
+        </div>
+
+        <!-- Flambae -->
+        <div class="character-card" onclick="openModal('flambae')">
+          <img src="images/flambae.png" alt="Flambae">
+          <h3>Flambae</h3>
+        </div>
+
+        <!-- Malevola -->
+        <div class="character-card" onclick="openModal('malevola')">
+          <img src="images/malevola.png" alt="Malevola">
+          <h3>Malevola</h3>
+        </div>
+
+        <!-- Prism -->
+        <div class="character-card" onclick="openModal('prism')">
+          <img src="images/prism.png" alt="Prism">
+          <h3>Prism</h3>
+        </div>
+
+        <!-- Coupé -->
+        <div class="character-card" onclick="openModal('coupe')">
+          <img src="images/coupe.png" alt="Coupé">
+          <h3>Coupé</h3>
+        </div>
+
+        <!-- Golem -->
+        <div class="character-card" onclick="openModal('golem')">
+          <img src="images/golem.png" alt="Golem">
+          <h3>Golem</h3>
+        </div>
+
+        <!-- Phenomeman -->
+        <div class="character-card" onclick="openModal('phenomaman')">
+          <img src="images/phenomaman.png" alt="Phenomaman">
+          <h3>Phenomeman</h3>
+        </div>
+
+        <!-- Waterboy -->
+        <div class="character-card" onclick="openModal('waterboy')">
+          <img src="images/waterboy.png" alt="Waterboy">
+          <h3>Waterboy</h3>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== MODALS ====== -->
+  <div id="robert" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('robert')">&times;</span>
+      <h2>Robert Robertson III</h2>
+      <p><strong>Hlas:</strong> Aaron Paul</p>
+      <p>Bývalý hrdina, nyní dispečer Z-Teamu. Spojuje neklidné osobnosti a snaží se vést tým, který většina už dávno odepsala.</p>
+    </div>
+  </div>
+
+  <div id="invisigal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('invisigal')">&times;</span>
+      <h2>Invisigal</h2>
+      <p><strong>Hlas:</strong> Laura Bailey</p>
+      <p>Mistryně utajení a infiltrace. Díky svému neviditelnosti je klíčovou členkou týmu pro špionážní mise.</p>
+    </div>
+  </div>
+
+  <div id="sonar" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('sonar')">&times;</span>
+      <h2>Sonar</h2>
+      <p><strong>Hlas:</strong> MoistCr1Tikal (Charlie White)</p>
+      <p>Na půl netopýr, na půl člověk. Předtím absolvoval prestižní univerzitu Harvard University, pak ale spadl do podsvětí – podílel se na masivních investičních podvodech a finančních machinacích.</p>
+    </div>
+  </div>
+
+  <div id="punchup" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('punchup')">&times;</span>
+      <h2>Punch Up</h2>
+      <p><strong>Hlas:</strong> Jacksepticeye (Seán McLoughlin)</p>
+      <p>Nejmenší silák na světě. Měří sotva metr, ale díky kouzelné smlouvě s čarodějnicí získal sílu deseti mužů a téměř nadpřirozenou odolnost. Tato dohoda však měla svou cenu: Colm přišel o svou původní výšku a stal se trpaslíkem s obrovskou mocí v drobném těle.</p>
+    </div>
+  </div>
+
+  <div id="flambae" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('flambae')">&times;</span>
+      <h2>Flambae</h2>Lance Cantstopolis</p>
+      <p>Pyromantka s vášní pro chaos i styl. Její ohnivý temperament se odráží v jejím neústupném postoji a drzosti.</p>
+    </div>
+  </div>
+
+  <div id="malevola" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('malevola')">&times;</span>
+      <h2>Malevola</h2>
+      <p><strong>Hlas:</strong> Alanah Pearce</p>
+      <p>Bývalá padouška ovládající temnou energii. Její snaha o nápravu ji často staví do konfliktu s ostatními.</p>
+    </div>
+  </div>
+
+  <div id="prism" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('prism')">&times;</span>
+      <h2>Prism</h2>
+      <p><strong>Hlas:</strong> THOT SQUAD</p>
+      <p>Manipuluje světlem a odrazy. Jeho schopnosti umožňují vytvářet iluze i štíty, které chrání tým.</p>
+    </div>
+  </div>
+
+  <div id="coupe" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('coupe')">&times;</span>
+      <h2>Coupé</h2>
+      <p><strong>Hlas:</strong> Mayanna Berrin</p>
+      <p>Rychlý jako blesk. Jeho superspeed schopnosti z něj dělají ideálního pro záchranné akce a rychlé údery.</p>
+    </div>
+  </div>
+
+  <div id="golem" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('golem')">&times;</span>
+      <h2>Golem</h2>
+      <p><strong>Hlas:</strong> Yung Gravy</p>
+      <p>Monolitický člen Z-Teamu s tělem z kamene. Síla a loajalita jsou jeho největšími zbraněmi.</p>
+    </div>
+  </div>
+
+  <div id="phenomeman" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('phenomeman')">&times;</span>
+      <h2>Phenomeman</h2>
+      <p><strong>Hlas:</strong> Travis Willingham</p>
+      <p>Manipuluje fyzikálními silami. Sebevědomý, ale často arogantní člen, který má sklon k přehánění svých schopností.</p>
+    </div>
+  </div>
+
+  <div id="waterboy" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('waterboy')">&times;</span>
+      <h2>Waterboy</h2>
+      <p><strong>Hlas:</strong> Joel Haver</p>
+      <p>Mladý hrdina ovládající vodu. I přes nezkušenost se snaží dokázat, že do Z-Teamu patří.</p>
+    </div>
+  </div>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <p>© 2025 Fanweb Dispatch | Neoficiální fanouškovský projekt</p>
+  </footer>
+
+  <!-- ====== SCRIPT ====== -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

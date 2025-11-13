@@ -1,0 +1,158 @@
+/* ====== DISPATCH — Neon Style Theme ====== */
+/* Autor: [tvoje jméno] */
+/* Styl inspirován hrou Dispatch (AdHoc Studio, 2025) */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Rajdhani:wght@400;600&display=swap');
+
+/* ====== RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #e0e0f0;
+  font-family: 'Rajdhani', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ====== COLORS ====== */
+:root {
+  --neon-blue: #00c2ff;
+  --neon-purple: #a020f0;
+  --neon-orange: #ff7b00;
+  --text-light: #e0e0f0;
+  --text-dim: #999;
+  --bg-dark: #0a0a0f;
+  --bg-card: #141420;
+  --transition: 0.3s ease;
+}
+
+/* ====== HEADER ====== */
+header {
+  background: linear-gradient(90deg, #101020, #0a0a0f);
+  border-bottom: 2px solid var(--neon-blue);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: var(--neon-blue);
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+nav a {
+  color: var(--text-light);
+  margin-left: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--neon-purple);
+  text-shadow: 0 0 6px var(--neon-purple);
+}
+
+/* ====== MAIN CONTENT ====== */
+main {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Cards / Sections */
+.section {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 194, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(160, 32, 240, 0.25);
+}
+
+/* ====== BUTTONS ====== */
+.button {
+  display: inline-block;
+  background: var(--neon-blue);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: var(--transition);
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.button:hover {
+  background: var(--neon-purple);
+  box-shadow: 0 0 18px var(--neon-purple);
+}
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-dim);
+  background-color: #08080d;
+}
+
+/* ====== NEON ANIMATION (for logo / title etc.) ====== */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px var(--neon-blue), 0 0 16px var(--neon-blue);
+  }
+  50% {
+    text-shadow: 0 0 2px var(--neon-purple), 0 0 8px var(--neon-purple);
+  }
+}
+
+.neon-text {
+  animation: neonPulse 2.5s infinite alternate;
+}
+
+/* ====== MEDIA QUERIES ====== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav a {
+    margin: 0.5rem 1rem;
+  }
+
+  main {
+    padding: 2rem 1rem;
+  }
+}
+/* ====== LOGO STYLING ====== */
+.logo img {
+  height: 60px;
+  filter: drop-shadow(0 0 10px var(--neon-blue));
+  transition: transform var(--transition), filter var(--transition);
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 18px var(--neon-purple));
+}
